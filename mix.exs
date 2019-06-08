@@ -32,7 +32,8 @@ defmodule ZoomAPI.Mixfile do
   defp deps do
     [
       {:tesla, "~> 0.8"},
-      {:poison, ">= 1.0.0"}
+      {:poison, "~> 3.0"},
+      {:rexbug, "~> 1.0"}
     ]
   end
 end
