@@ -44,7 +44,7 @@ defmodule ZoomAPI.Api.Billing do
 
   - connection (ZoomAPI.Connection): Connection to server
   - account_id (String.t): The account ID.
-  - body (Body2): 
+  - body (Body2):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -71,9 +71,9 @@ defmodule ZoomAPI.Api.Billing do
   ## Parameters
 
   - connection (ZoomAPI.Connection): Connection to server
-  - account_id (String.t): 
+  - account_id (String.t):
   - opts (KeywordList): [optional] Optional parameters
-    - :body (Body37): 
+    - :body (Body37):
 
   ## Returns
 
@@ -104,7 +104,7 @@ defmodule ZoomAPI.Api.Billing do
 
   - connection (ZoomAPI.Connection): Connection to server
   - account_id (String.t): The account ID.
-  - body (Body5): 
+  - body (Body5):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -136,7 +136,7 @@ defmodule ZoomAPI.Api.Billing do
 
   - connection (ZoomAPI.Connection): Connection to server
   - account_id (String.t): The account ID.
-  - body (Body4): 
+  - body (Body4):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -167,9 +167,9 @@ defmodule ZoomAPI.Api.Billing do
   ## Parameters
 
   - connection (ZoomAPI.Connection): Connection to server
-  - account_id (String.t): 
+  - account_id (String.t):
   - opts (KeywordList): [optional] Optional parameters
-    - :body (Body36): 
+    - :body (Body36):
 
   ## Returns
 
@@ -200,7 +200,7 @@ defmodule ZoomAPI.Api.Billing do
 
   - connection (ZoomAPI.Connection): Connection to server
   - account_id (String.t): The account ID.
-  - body (Body3): 
+  - body (Body3):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -232,7 +232,7 @@ defmodule ZoomAPI.Api.Billing do
 
   - connection (ZoomAPI.Connection): Connection to server
   - account_id (String.t): The account ID.
-  - body (object): 
+  - body (object):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -240,7 +240,7 @@ defmodule ZoomAPI.Api.Billing do
   {:ok, %ZoomAPI.Model.InlineResponse2003{}} on success
   {:error, info} on failure
   """
-  @spec account_plan_create(Tesla.Env.client(), String.t(), ZoomAPI.Model.object().t, keyword()) ::
+  @spec account_plan_create(Tesla.Env.client(), String.t(), ZoomAPI.Model.Object.t(), keyword()) ::
           {:ok, ZoomAPI.Model.InlineResponse2003.t()} | {:error, Tesla.Env.t()}
   def account_plan_create(connection, account_id, body, _opts \\ []) do
     %{}

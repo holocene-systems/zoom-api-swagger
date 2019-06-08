@@ -58,7 +58,7 @@ defmodule ZoomAPI.Api.Meetings do
   {:ok, %ZoomAPI.Model.InlineResponse2015{}} on success
   {:error, info} on failure
   """
-  @spec meeting_create(Tesla.Env.client(), String.t(), ZoomAPI.Model.object().t, keyword()) ::
+  @spec meeting_create(Tesla.Env.client(), String.t(), ZoomAPI.Model.Object.t(), keyword()) ::
           {:ok, ZoomAPI.Model.InlineResponse2015.t()} | {:error, Tesla.Env.t()}
   def meeting_create(connection, user_id, body, _opts \\ []) do
     %{}
@@ -208,7 +208,7 @@ defmodule ZoomAPI.Api.Meetings do
   {:ok, %ZoomAPI.Model.InlineResponse2017{}} on success
   {:error, info} on failure
   """
-  @spec meeting_poll_create(Tesla.Env.client(), integer(), ZoomAPI.Model.object().t, keyword()) ::
+  @spec meeting_poll_create(Tesla.Env.client(), integer(), ZoomAPI.Model.Object.t(), keyword()) ::
           {:ok, ZoomAPI.Model.InlineResponse2017.t()} | {:error, Tesla.Env.t()}
   def meeting_poll_create(connection, meeting_id, body, _opts \\ []) do
     %{}
@@ -295,7 +295,7 @@ defmodule ZoomAPI.Api.Meetings do
           Tesla.Env.client(),
           integer(),
           String.t(),
-          ZoomAPI.Model.object().t,
+          ZoomAPI.Model.Object.t(),
           keyword()
         ) :: {:ok, nil} | {:error, Tesla.Env.t()}
   def meeting_poll_update(connection, meeting_id, poll_id, body, _opts \\ []) do
@@ -309,7 +309,7 @@ defmodule ZoomAPI.Api.Meetings do
   end
 
   @doc """
-  List a meeting&#39;s polls 
+  List a meeting&#39;s polls
   List polls of a meeting&lt;br&gt;&lt;br&gt; Scopes: &#x60;meeting:read:admin&#x60; &#x60;meeting:read&#x60;
 
   ## Parameters
@@ -342,7 +342,7 @@ defmodule ZoomAPI.Api.Meetings do
 
   - connection (ZoomAPI.Connection): Connection to server
   - meeting_id (integer()): The meeting ID.
-  - body (object): 
+  - body (object):
   - opts (KeywordList): [optional] Optional parameters
     - :occurrence_ids (String.t): Occurrence IDs. You can find these with the meeting get API. Multiple values separated by comma.
 
@@ -354,7 +354,7 @@ defmodule ZoomAPI.Api.Meetings do
   @spec meeting_registrant_create(
           Tesla.Env.client(),
           integer(),
-          ZoomAPI.Model.object().t,
+          ZoomAPI.Model.Object.t(),
           keyword()
         ) :: {:ok, ZoomAPI.Model.InlineResponse2016.t()} | {:error, Tesla.Env.t()}
   def meeting_registrant_create(connection, meeting_id, body, opts \\ []) do
@@ -391,7 +391,7 @@ defmodule ZoomAPI.Api.Meetings do
   @spec meeting_registrant_question_update(
           Tesla.Env.client(),
           integer(),
-          ZoomAPI.Model.object().t,
+          ZoomAPI.Model.Object.t(),
           keyword()
         ) :: {:ok, nil} | {:error, Tesla.Env.t()}
   def meeting_registrant_question_update(connection, meeting_id, body, _opts \\ []) do
@@ -412,7 +412,7 @@ defmodule ZoomAPI.Api.Meetings do
 
   - connection (ZoomAPI.Connection): Connection to server
   - meeting_id (integer()): The meeting ID.
-  - body (Body13): 
+  - body (Body13):
   - opts (KeywordList): [optional] Optional parameters
     - :occurrence_id (String.t): The meeting occurrence ID.
 
@@ -514,7 +514,7 @@ defmodule ZoomAPI.Api.Meetings do
 
   - connection (ZoomAPI.Connection): Connection to server
   - meeting_id (integer()): The meeting ID.
-  - body (Body12): 
+  - body (Body12):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -551,7 +551,7 @@ defmodule ZoomAPI.Api.Meetings do
   {:ok, %{}} on success
   {:error, info} on failure
   """
-  @spec meeting_update(Tesla.Env.client(), integer(), ZoomAPI.Model.object().t, keyword()) ::
+  @spec meeting_update(Tesla.Env.client(), integer(), ZoomAPI.Model.Object.t(), keyword()) ::
           {:ok, nil} | {:error, Tesla.Env.t()}
   def meeting_update(connection, meeting_id, body, opts \\ []) do
     optional_params = %{
@@ -606,7 +606,7 @@ defmodule ZoomAPI.Api.Meetings do
 
   @doc """
   Retrieve Past Meeting Details
-  Retrieve details from a past meeting. &lt;br&gt;&lt;br&gt; Scopes: &#x60;meeting:read:admin&#x60; &#x60;meeting:read&#x60;  &gt; **Note**: Please double encode your UUID when using this API. &gt; 
+  Retrieve details from a past meeting. &lt;br&gt;&lt;br&gt; Scopes: &#x60;meeting:read:admin&#x60; &#x60;meeting:read&#x60;  &gt; **Note**: Please double encode your UUID when using this API. &gt;
 
   ## Parameters
 
@@ -632,7 +632,7 @@ defmodule ZoomAPI.Api.Meetings do
 
   @doc """
   Retrieve Past Meeting Participants
-  Retrieve participants from a past meeting. &lt;br&gt;&lt;br&gt; Scopes: &#x60;meeting:read:admin&#x60; &#x60;meeting:read&#x60;  &gt; **Note**: Please double encode your UUID when using this API. &gt; 
+  Retrieve participants from a past meeting. &lt;br&gt;&lt;br&gt; Scopes: &#x60;meeting:read:admin&#x60; &#x60;meeting:read&#x60;  &gt; **Note**: Please double encode your UUID when using this API. &gt;
 
   ## Parameters
 

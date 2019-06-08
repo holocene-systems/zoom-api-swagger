@@ -18,7 +18,7 @@ defmodule ZoomAPI.Api.CloudRecording do
 
   - connection (ZoomAPI.Connection): Connection to server
   - meeting_id (integer()): The meeting ID.
-  - body (object): 
+  - body (object):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -29,7 +29,7 @@ defmodule ZoomAPI.Api.CloudRecording do
   @spec meeting_recording_registrant_create(
           Tesla.Env.client(),
           integer(),
-          ZoomAPI.Model.object().t,
+          ZoomAPI.Model.Object.t(),
           keyword()
         ) :: {:ok, ZoomAPI.Model.InlineResponse2018.t()} | {:error, Tesla.Env.t()}
   def meeting_recording_registrant_create(connection, meeting_id, body, _opts \\ []) do
@@ -50,7 +50,7 @@ defmodule ZoomAPI.Api.CloudRecording do
 
   - connection (ZoomAPI.Connection): Connection to server
   - meeting_id (integer()): The meeting ID.
-  - body (Body16): 
+  - body (Body16):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -220,7 +220,7 @@ defmodule ZoomAPI.Api.CloudRecording do
   @spec recording_registrant_question_update(
           Tesla.Env.client(),
           String.t(),
-          ZoomAPI.Model.object().t,
+          ZoomAPI.Model.Object.t(),
           keyword()
         ) :: {:ok, nil} | {:error, Tesla.Env.t()}
   def recording_registrant_question_update(connection, meeting_id, body, _opts \\ []) do
@@ -325,7 +325,7 @@ defmodule ZoomAPI.Api.CloudRecording do
 
   - connection (ZoomAPI.Connection): Connection to server
   - meeting_id (String.t): The meeting ID or meeting UUID. If given the meeting ID it will take the last meeting instance.
-  - body (Body14): 
+  - body (Body14):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -358,7 +358,7 @@ defmodule ZoomAPI.Api.CloudRecording do
   - connection (ZoomAPI.Connection): Connection to server
   - meeting_id (String.t): The meeting ID or meeting UUID. If given the meeting ID it will take the last meeting instance.
   - recording_id (String.t): The recording ID.
-  - body (Body15): 
+  - body (Body15):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns

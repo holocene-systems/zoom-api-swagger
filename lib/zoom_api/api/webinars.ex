@@ -120,7 +120,7 @@ defmodule ZoomAPI.Api.Webinars do
   {:ok, %{}} on success
   {:error, info} on failure
   """
-  @spec webinar_create(Tesla.Env.client(), String.t(), ZoomAPI.Model.object().t, keyword()) ::
+  @spec webinar_create(Tesla.Env.client(), String.t(), ZoomAPI.Model.Object.t(), keyword()) ::
           {:ok, nil} | {:error, Tesla.Env.t()}
   def webinar_create(connection, user_id, body, _opts \\ []) do
     %{}
@@ -172,7 +172,7 @@ defmodule ZoomAPI.Api.Webinars do
 
   - connection (ZoomAPI.Connection): Connection to server
   - webinar_id (integer()): The webinar ID.
-  - body (Body24): 
+  - body (Body24):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -291,7 +291,7 @@ defmodule ZoomAPI.Api.Webinars do
   {:ok, %ZoomAPI.Model.InlineResponse20114{}} on success
   {:error, info} on failure
   """
-  @spec webinar_poll_create(Tesla.Env.client(), integer(), ZoomAPI.Model.object().t, keyword()) ::
+  @spec webinar_poll_create(Tesla.Env.client(), integer(), ZoomAPI.Model.Object.t(), keyword()) ::
           {:ok, ZoomAPI.Model.InlineResponse20114.t()} | {:error, Tesla.Env.t()}
   def webinar_poll_create(connection, webinar_id, body, _opts \\ []) do
     %{}
@@ -378,7 +378,7 @@ defmodule ZoomAPI.Api.Webinars do
           Tesla.Env.client(),
           integer(),
           String.t(),
-          ZoomAPI.Model.object().t,
+          ZoomAPI.Model.Object.t(),
           keyword()
         ) :: {:ok, nil} | {:error, Tesla.Env.t()}
   def webinar_poll_update(connection, webinar_id, poll_id, body, _opts \\ []) do
@@ -392,7 +392,7 @@ defmodule ZoomAPI.Api.Webinars do
   end
 
   @doc """
-  List a webinar&#39;s polls 
+  List a webinar&#39;s polls
   List polls of a webinar&lt;br&gt;&lt;br&gt; Scopes: &#x60;webinar:read:admin&#x60; &#x60;webinar:read&#x60;
 
   ## Parameters
@@ -425,7 +425,7 @@ defmodule ZoomAPI.Api.Webinars do
 
   - connection (ZoomAPI.Connection): Connection to server
   - webinar_id (integer()): The webinar ID.
-  - body (object): 
+  - body (object):
   - opts (KeywordList): [optional] Optional parameters
     - :occurrence_ids (String.t): Occurrence ID. Get this value from the webinar get API. Multiple values separated by a comma.
 
@@ -437,7 +437,7 @@ defmodule ZoomAPI.Api.Webinars do
   @spec webinar_registrant_create(
           Tesla.Env.client(),
           integer(),
-          ZoomAPI.Model.object().t,
+          ZoomAPI.Model.Object.t(),
           keyword()
         ) :: {:ok, ZoomAPI.Model.InlineResponse20113.t()} | {:error, Tesla.Env.t()}
   def webinar_registrant_create(connection, webinar_id, body, opts \\ []) do
@@ -490,7 +490,7 @@ defmodule ZoomAPI.Api.Webinars do
 
   @doc """
   Update a webinar&#39;s registration fields.
-  Update a webinar&#39;s registration fields and questions.  Pre-requisite: Registration option for webinar should be set as required to use this API. 
+  Update a webinar&#39;s registration fields and questions.  Pre-requisite: Registration option for webinar should be set as required to use this API.
 
   ## Parameters
 
@@ -507,7 +507,7 @@ defmodule ZoomAPI.Api.Webinars do
   @spec webinar_registrant_question_update(
           Tesla.Env.client(),
           integer(),
-          ZoomAPI.Model.object().t,
+          ZoomAPI.Model.Object.t(),
           keyword()
         ) :: {:ok, nil} | {:error, Tesla.Env.t()}
   def webinar_registrant_question_update(connection, webinar_id, body, _opts \\ []) do
@@ -528,7 +528,7 @@ defmodule ZoomAPI.Api.Webinars do
 
   - connection (ZoomAPI.Connection): Connection to server
   - webinar_id (integer()): The webinar ID.
-  - body (Body25): 
+  - body (Body25):
   - opts (KeywordList): [optional] Optional parameters
     - :occurrence_id (String.t): The meeting occurrence ID.
 
@@ -630,7 +630,7 @@ defmodule ZoomAPI.Api.Webinars do
 
   - connection (ZoomAPI.Connection): Connection to server
   - webinar_id (integer()): The webinar ID.
-  - body (Body23): 
+  - body (Body23):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -667,7 +667,7 @@ defmodule ZoomAPI.Api.Webinars do
   {:ok, %{}} on success
   {:error, info} on failure
   """
-  @spec webinar_update(Tesla.Env.client(), integer(), ZoomAPI.Model.object().t, keyword()) ::
+  @spec webinar_update(Tesla.Env.client(), integer(), ZoomAPI.Model.Object.t(), keyword()) ::
           {:ok, nil} | {:error, Tesla.Env.t()}
   def webinar_update(connection, webinar_id, body, opts \\ []) do
     optional_params = %{
