@@ -17,7 +17,7 @@ defmodule ZoomAPI.Model.AccountList do
   ]
 
   @type t :: %__MODULE__{
-          :accounts => [AccountListAccounts],
+          :accounts => [ZoomAPI.Model.AccountListAccounts.t()],
           :page_count => integer(),
           :page_number => integer(),
           :page_size => integer(),

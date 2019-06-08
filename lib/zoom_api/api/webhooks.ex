@@ -96,7 +96,7 @@ defmodule ZoomAPI.Api.Webhooks do
   ## Parameters
 
   - connection (ZoomAPI.Connection): Connection to server
-  - body (Body26): 
+  - body (Body26):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -155,17 +155,17 @@ defmodule ZoomAPI.Api.Webhooks do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec webhooks(Tesla.Env.client(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def webhooks(connection, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/webhooks")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 end

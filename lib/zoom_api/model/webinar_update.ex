@@ -47,6 +47,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.WebinarUpdate do
       options
     )
     |> deserialize(:recurrence, :struct, ZoomAPI.Model.InlineResponse2015Recurrence, options)
-    |> deserialize(:settings, :struct, ZoomAPI.Model.Object, options)
+    |> deserialize(:settings, :struct, :map, options)
   end
 end

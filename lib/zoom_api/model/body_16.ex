@@ -15,7 +15,9 @@ defmodule ZoomAPI.Model.Body16 do
 
   @type t :: %__MODULE__{
           :action => String.t(),
-          :registrants => [MeetingsmeetingIdrecordingsregistrantsstatusRegistrants]
+          :registrants => [
+            ZoomAPI.Model.MeetingsmeetingIdrecordingsregistrantsstatusRegistrants.t()
+          ]
         }
 end
 

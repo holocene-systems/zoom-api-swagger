@@ -15,7 +15,7 @@ defmodule ZoomAPI.Model.TrackingFieldList do
 
   @type t :: %__MODULE__{
           :total_records => integer(),
-          :tracking_fields => [Object]
+          :tracking_fields => [map]
         }
 end
 
@@ -24,6 +24,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.TrackingFieldList do
 
   def decode(value, options) do
     value
-    |> deserialize(:tracking_fields, :list, ZoomAPI.Model.Object, options)
+    |> deserialize(:tracking_fields, :list, :map, options)
   end
 end

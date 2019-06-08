@@ -123,7 +123,7 @@ defmodule ZoomAPI.Api.Accounts do
 
   - connection (ZoomAPI.Connection): Connection to server
   - account_id (String.t): The account ID.
-  - body (Body1): 
+  - body (Body1):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -177,7 +177,7 @@ defmodule ZoomAPI.Api.Accounts do
 
   - connection (ZoomAPI.Connection): Connection to server
   - account_id (String.t): The account ID.
-  - body (AccountSettings): 
+  - body (AccountSettings):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
@@ -213,18 +213,18 @@ defmodule ZoomAPI.Api.Accounts do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec account_trusted_domain(Tesla.Env.client(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def account_trusted_domain(connection, account_id, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/accounts/#{account_id}/trusted_domains")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """

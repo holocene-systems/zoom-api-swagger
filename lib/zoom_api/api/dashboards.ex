@@ -23,11 +23,11 @@ defmodule ZoomAPI.Api.Dashboards do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec dashboard_crc(Tesla.Env.client(), Date.t(), Date.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def dashboard_crc(connection, from, to, _opts \\ []) do
     %{}
     |> method(:get)
@@ -36,7 +36,7 @@ defmodule ZoomAPI.Api.Dashboards do
     |> add_param(:query, :to, to)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -52,11 +52,11 @@ defmodule ZoomAPI.Api.Dashboards do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec dashboard_client_feedback(Tesla.Env.client(), Date.t(), Date.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def dashboard_client_feedback(connection, from, to, _opts \\ []) do
     %{}
     |> method(:get)
@@ -65,7 +65,7 @@ defmodule ZoomAPI.Api.Dashboards do
     |> add_param(:query, :to, to)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -77,10 +77,10 @@ defmodule ZoomAPI.Api.Dashboards do
   - connection (ZoomAPI.Connection): Connection to server
   - feedback_id (String.t): Feedback Detail Id
   - opts (KeywordList): [optional] Optional parameters
-    - :from (Date.t): 
-    - :to (Date.t): 
-    - :page_size (integer()): 
-    - :next_page_token (String.t): 
+    - :from (Date.t):
+    - :to (Date.t):
+    - :page_size (integer()):
+    - :next_page_token (String.t):
 
   ## Returns
 
@@ -199,11 +199,11 @@ defmodule ZoomAPI.Api.Dashboards do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec dashboard_issue_zoom_room(Tesla.Env.client(), Date.t(), Date.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def dashboard_issue_zoom_room(connection, from, to, _opts \\ []) do
     %{}
     |> method(:get)
@@ -212,7 +212,7 @@ defmodule ZoomAPI.Api.Dashboards do
     |> add_param(:query, :to, to)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -690,11 +690,11 @@ defmodule ZoomAPI.Api.Dashboards do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec dashboard_zoom_room_issue(Tesla.Env.client(), Date.t(), Date.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def dashboard_zoom_room_issue(connection, from, to, _opts \\ []) do
     %{}
     |> method(:get)
@@ -703,7 +703,7 @@ defmodule ZoomAPI.Api.Dashboards do
     |> add_param(:query, :to, to)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """

@@ -17,23 +17,23 @@ defmodule ZoomAPI.Api.IMChat do
   ## Parameters
 
   - connection (ZoomAPI.Connection): Connection to server
-  - user_id (String.t): 
+  - user_id (String.t):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec getchatchannels(Tesla.Env.client(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def getchatchannels(connection, user_id, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/im/users/#{user_id}/channels")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -159,7 +159,7 @@ defmodule ZoomAPI.Api.IMChat do
 
   - connection (ZoomAPI.Connection): Connection to server
   - opts (KeywordList): [optional] Optional parameters
-    - :body (Body29): 
+    - :body (Body29):
 
   ## Returns
 
@@ -189,7 +189,7 @@ defmodule ZoomAPI.Api.IMChat do
 
   - connection (ZoomAPI.Connection): Connection to server
   - opts (KeywordList): [optional] Optional parameters
-    - :body (Body32): 
+    - :body (Body32):
     - :chat_user (String.t): Chat user&#39;s ID or email address.
 
   ## Returns

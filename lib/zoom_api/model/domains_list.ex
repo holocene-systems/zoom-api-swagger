@@ -15,7 +15,7 @@ defmodule ZoomAPI.Model.DomainsList do
 
   @type t :: %__MODULE__{
           :total_records => integer(),
-          :domains => [Object]
+          :domains => [map]
         }
 end
 
@@ -24,6 +24,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.DomainsList do
 
   def decode(value, options) do
     value
-    |> deserialize(:domains, :list, ZoomAPI.Model.Object, options)
+    |> deserialize(:domains, :list, :map, options)
   end
 end

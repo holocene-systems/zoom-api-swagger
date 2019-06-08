@@ -19,13 +19,13 @@ defmodule ZoomAPI.Model.AccountPlans do
   ]
 
   @type t :: %__MODULE__{
-          :plan_base => InlineResponse2003PlanBase,
-          :plan_zoom_rooms => InlineResponse2003PlanZoomRooms,
-          :plan_room_connector => InlineResponse2003PlanZoomRooms,
-          :plan_large_meeting => [InlineResponse2003PlanZoomRooms],
-          :plan_webinar => [InlineResponse2003PlanZoomRooms],
+          :plan_base => ZoomAPI.Model.InlineResponse2003PlanBase.t(),
+          :plan_zoom_rooms => ZoomAPI.Model.InlineResponse2003PlanZoomRooms.t(),
+          :plan_room_connector => ZoomAPI.Model.InlineResponse2003PlanZoomRooms.t(),
+          :plan_large_meeting => [ZoomAPI.Model.InlineResponse2003PlanZoomRooms.t()],
+          :plan_webinar => [ZoomAPI.Model.InlineResponse2003PlanZoomRooms.t()],
           :plan_recording => String.t(),
-          :plan_audio => InlineResponse2003PlanAudio
+          :plan_audio => ZoomAPI.Model.InlineResponse2003PlanAudio.t()
         }
 end
 

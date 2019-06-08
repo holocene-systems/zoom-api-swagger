@@ -15,7 +15,7 @@ defmodule ZoomAPI.Model.InlineResponse2004 do
 
   @type t :: %__MODULE__{
           :total_records => integer(),
-          :groups => [Object]
+          :groups => [map]
         }
 end
 
@@ -24,6 +24,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.InlineResponse2004 do
 
   def decode(value, options) do
     value
-    |> deserialize(:groups, :list, ZoomAPI.Model.Object, options)
+    |> deserialize(:groups, :list, :map, options)
   end
 end

@@ -38,10 +38,10 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.ParticipantQosUserQos do
     value
     |> deserialize(:audio_input, :struct, ZoomAPI.Model.QosObject, options)
     |> deserialize(:audio_output, :struct, ZoomAPI.Model.QosObject, options)
-    |> deserialize(:video_input, :struct, ZoomAPI.Model.Object, options)
-    |> deserialize(:video_output, :struct, ZoomAPI.Model.Object, options)
-    |> deserialize(:as_input, :struct, ZoomAPI.Model.Object, options)
-    |> deserialize(:as_output, :struct, ZoomAPI.Model.Object, options)
+    |> deserialize(:video_input, :struct, :map, options)
+    |> deserialize(:video_output, :struct, :map, options)
+    |> deserialize(:as_input, :struct, :map, options)
+    |> deserialize(:as_output, :struct, :map, options)
     |> deserialize(:cpu_usage, :struct, ZoomAPI.Model.ParticipantQosUserQosCpuUsage, options)
   end
 end

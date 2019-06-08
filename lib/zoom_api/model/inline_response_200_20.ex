@@ -49,6 +49,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.InlineResponse20020 do
   def decode(value, options) do
     value
     |> deserialize(:live_meeting, :struct, ZoomAPI.Model.MeetingMetrics, options)
-    |> deserialize(:past_meetings, :struct, ZoomAPI.Model.Object, options)
+    |> deserialize(:past_meetings, :struct, :map, options)
   end
 end

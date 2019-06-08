@@ -15,7 +15,7 @@ defmodule ZoomAPI.Model.WebhookList do
 
   @type t :: %__MODULE__{
           :total_records => integer(),
-          :webhooks => [Object]
+          :webhooks => [map]
         }
 end
 
@@ -24,6 +24,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.WebhookList do
 
   def decode(value, options) do
     value
-    |> deserialize(:webhooks, :list, ZoomAPI.Model.Object, options)
+    |> deserialize(:webhooks, :list, :map, options)
   end
 end

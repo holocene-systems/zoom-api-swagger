@@ -15,7 +15,7 @@ defmodule ZoomAPI.Model.RoleList do
 
   @type t :: %__MODULE__{
           :total_records => integer(),
-          :roles => [Object]
+          :roles => [map]
         }
 end
 
@@ -24,6 +24,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.RoleList do
 
   def decode(value, options) do
     value
-    |> deserialize(:roles, :list, ZoomAPI.Model.Object, options)
+    |> deserialize(:roles, :list, :map, options)
   end
 end

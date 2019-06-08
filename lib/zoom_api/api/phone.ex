@@ -51,22 +51,22 @@ defmodule ZoomAPI.Api.Phone do
 
   @doc """
   Assign Calling Plan to a User
-  Assign [calling plan](https://marketplace.zoom.us/docs/api-reference/other-references/plans#zoom-phone-calling-plans) to a [Zoom Phone](https://support.zoom.us/hc/en-us/categories/360001370051-Zoom-Phone) user.  **Scopes**: &#x60;phone:write&#x60; &#x60;phone:write:admin&#x60;&lt;br&gt; **Prerequisite:**  1. Business or Enterprise account 2. A Zoom Phone license  
+  Assign [calling plan](https://marketplace.zoom.us/docs/api-reference/other-references/plans#zoom-phone-calling-plans) to a [Zoom Phone](https://support.zoom.us/hc/en-us/categories/360001370051-Zoom-Phone) user.  **Scopes**: &#x60;phone:write&#x60; &#x60;phone:write:admin&#x60;&lt;br&gt; **Prerequisite:**  1. Business or Enterprise account 2. A Zoom Phone license
 
   ## Parameters
 
   - connection (ZoomAPI.Connection): Connection to server
-  - user_id (String.t): 
+  - user_id (String.t):
   - opts (KeywordList): [optional] Optional parameters
-    - :body (Body35): 
+    - :body (Body35):
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec assign_calling_plan(Tesla.Env.client(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def assign_calling_plan(connection, user_id, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -78,17 +78,17 @@ defmodule ZoomAPI.Api.Phone do
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
-  Assign Phone Number to User 
+  Assign Phone Number to User
   Assign a [phone number](https://support.zoom.us/hc/en-us/articles/360020808292-Managing-Phone-Numbers) to a user who has already enabled Zoom Phone.   **Scopes**: &#x60;phone:write&#x60; &#x60;phone:write:admin&#x60;&lt;br&gt; **Prerequisite:**  1. Business or Enterprise account 2. A Zoom Phone license
 
   ## Parameters
 
   - connection (ZoomAPI.Connection): Connection to server
-  - user_id (String.t): 
+  - user_id (String.t):
   - opts (KeywordList): [optional] Optional parameters
     - :body (Body34): Provide either an id or a number in the request body.
 
@@ -152,7 +152,7 @@ defmodule ZoomAPI.Api.Phone do
   - opts (KeywordList): [optional] Optional parameters
     - :page_size (integer()): The number of records returned within a single API call.
     - :page_number (integer()): The current page number of returned records.
-    - :type (String.t): 
+    - :type (String.t):
 
   ## Returns
 
@@ -308,24 +308,24 @@ defmodule ZoomAPI.Api.Phone do
   ## Parameters
 
   - connection (ZoomAPI.Connection): Connection to server
-  - user_id (String.t): 
-  - type (String.t): The [type](https://marketplace.zoom.us/docs/api-reference/other-references/plans#zoom-phone-calling-plans) of the calling plan that was assigned to user. (e.g: The value of type would be \&quot;200\&quot; for Unlimited US/Canada calling plan.) 
+  - user_id (String.t):
+  - type (String.t): The [type](https://marketplace.zoom.us/docs/api-reference/other-references/plans#zoom-phone-calling-plans) of the calling plan that was assigned to user. (e.g: The value of type would be \&quot;200\&quot; for Unlimited US/Canada calling plan.)
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec unassign_calling_plan(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def unassign_calling_plan(connection, user_id, type, _opts \\ []) do
     %{}
     |> method(:delete)
     |> url("/phone/users/#{user_id}/calling_plans/#{type}")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -336,23 +336,23 @@ defmodule ZoomAPI.Api.Phone do
 
   - connection (ZoomAPI.Connection): Connection to server
   - user_id (String.t): Provide either userId or email address of the user.
-  - phone_number_id (String.t): Provide either phone number or phoneNumberId of the user. 
+  - phone_number_id (String.t): Provide either phone number or phoneNumberId of the user.
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec unassign_phone_number(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def unassign_phone_number(connection, user_id, phone_number_id, _opts \\ []) do
     %{}
     |> method(:delete)
     |> url("/phone/users/#{user_id}/phone_numbers/#{phone_number_id}")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -362,17 +362,17 @@ defmodule ZoomAPI.Api.Phone do
   ## Parameters
 
   - connection (ZoomAPI.Connection): Connection to server
-  - user_id (String.t): 
+  - user_id (String.t):
   - opts (KeywordList): [optional] Optional parameters
-    - :body (Body33): 
+    - :body (Body33):
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec update_user_profile(Tesla.Env.client(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def update_user_profile(connection, user_id, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -384,6 +384,6 @@ defmodule ZoomAPI.Api.Phone do
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 end

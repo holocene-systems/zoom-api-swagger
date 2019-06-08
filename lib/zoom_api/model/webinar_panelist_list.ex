@@ -15,7 +15,7 @@ defmodule ZoomAPI.Model.WebinarPanelistList do
 
   @type t :: %__MODULE__{
           :total_records => integer(),
-          :panelists => [Object]
+          :panelists => [map]
         }
 end
 
@@ -24,6 +24,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.WebinarPanelistList do
 
   def decode(value, options) do
     value
-    |> deserialize(:panelists, :list, ZoomAPI.Model.Object, options)
+    |> deserialize(:panelists, :list, :map, options)
   end
 end

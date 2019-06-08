@@ -13,7 +13,7 @@ defmodule ZoomAPI.Model.Body11 do
   ]
 
   @type t :: %__MODULE__{
-          :members => [ImgroupsgroupIdmembersMembers]
+          :members => [ZoomAPI.Model.ImgroupsgroupIdmembersMembers.t()]
         }
 end
 

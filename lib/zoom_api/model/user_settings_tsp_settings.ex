@@ -16,7 +16,7 @@ defmodule ZoomAPI.Model.UserSettingsTspSettings do
 
   @type t :: %__MODULE__{
           :call_out => boolean(),
-          :call_out_countries => [Object],
+          :call_out_countries => [map],
           :show_international_numbers_link => boolean()
         }
 end
@@ -26,6 +26,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.UserSettingsTspSettings do
 
   def decode(value, options) do
     value
-    |> deserialize(:call_out_countries, :list, ZoomAPI.Model.Object, options)
+    |> deserialize(:call_out_countries, :list, :map, options)
   end
 end

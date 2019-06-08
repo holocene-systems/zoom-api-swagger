@@ -58,7 +58,7 @@ defmodule ZoomAPI.Api.Meetings do
   {:ok, %ZoomAPI.Model.InlineResponse2015{}} on success
   {:error, info} on failure
   """
-  @spec meeting_create(Tesla.Env.client(), String.t(), ZoomAPI.Model.Object.t(), keyword()) ::
+  @spec meeting_create(Tesla.Env.client(), String.t(), map, keyword()) ::
           {:ok, ZoomAPI.Model.InlineResponse2015.t()} | {:error, Tesla.Env.t()}
   def meeting_create(connection, user_id, body, _opts \\ []) do
     %{}
@@ -208,7 +208,7 @@ defmodule ZoomAPI.Api.Meetings do
   {:ok, %ZoomAPI.Model.InlineResponse2017{}} on success
   {:error, info} on failure
   """
-  @spec meeting_poll_create(Tesla.Env.client(), integer(), ZoomAPI.Model.Object.t(), keyword()) ::
+  @spec meeting_poll_create(Tesla.Env.client(), integer(), map, keyword()) ::
           {:ok, ZoomAPI.Model.InlineResponse2017.t()} | {:error, Tesla.Env.t()}
   def meeting_poll_create(connection, meeting_id, body, _opts \\ []) do
     %{}
@@ -295,7 +295,7 @@ defmodule ZoomAPI.Api.Meetings do
           Tesla.Env.client(),
           integer(),
           String.t(),
-          ZoomAPI.Model.Object.t(),
+          map,
           keyword()
         ) :: {:ok, nil} | {:error, Tesla.Env.t()}
   def meeting_poll_update(connection, meeting_id, poll_id, body, _opts \\ []) do
@@ -320,18 +320,18 @@ defmodule ZoomAPI.Api.Meetings do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec meeting_polls(Tesla.Env.client(), integer(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def meeting_polls(connection, meeting_id, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/meetings/#{meeting_id}/polls")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -354,7 +354,7 @@ defmodule ZoomAPI.Api.Meetings do
   @spec meeting_registrant_create(
           Tesla.Env.client(),
           integer(),
-          ZoomAPI.Model.Object.t(),
+          map,
           keyword()
         ) :: {:ok, ZoomAPI.Model.InlineResponse2016.t()} | {:error, Tesla.Env.t()}
   def meeting_registrant_create(connection, meeting_id, body, opts \\ []) do
@@ -391,7 +391,7 @@ defmodule ZoomAPI.Api.Meetings do
   @spec meeting_registrant_question_update(
           Tesla.Env.client(),
           integer(),
-          ZoomAPI.Model.Object.t(),
+          map,
           keyword()
         ) :: {:ok, nil} | {:error, Tesla.Env.t()}
   def meeting_registrant_question_update(connection, meeting_id, body, _opts \\ []) do
@@ -551,7 +551,7 @@ defmodule ZoomAPI.Api.Meetings do
   {:ok, %{}} on success
   {:error, info} on failure
   """
-  @spec meeting_update(Tesla.Env.client(), integer(), ZoomAPI.Model.Object.t(), keyword()) ::
+  @spec meeting_update(Tesla.Env.client(), integer(), map, keyword()) ::
           {:ok, nil} | {:error, Tesla.Env.t()}
   def meeting_update(connection, meeting_id, body, opts \\ []) do
     optional_params = %{
@@ -676,17 +676,17 @@ defmodule ZoomAPI.Api.Meetings do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec past_meetings(Tesla.Env.client(), integer(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def past_meetings(connection, meeting_id, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/past_meetings/#{meeting_id}/instances")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 end

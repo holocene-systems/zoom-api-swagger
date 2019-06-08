@@ -13,7 +13,7 @@ defmodule ZoomAPI.Model.AccountListItem do
   ]
 
   @type t :: %__MODULE__{
-          :accounts => [AccountListAccounts]
+          :accounts => [ZoomAPI.Model.AccountListAccounts.t()]
         }
 end
 

@@ -22,17 +22,17 @@ defmodule ZoomAPI.Api.PAC do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec user_pa_cs(Tesla.Env.client(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def user_pa_cs(connection, user_id, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/users/#{user_id}/pac")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 end

@@ -240,7 +240,7 @@ defmodule ZoomAPI.Api.Billing do
   {:ok, %ZoomAPI.Model.InlineResponse2003{}} on success
   {:error, info} on failure
   """
-  @spec account_plan_create(Tesla.Env.client(), String.t(), ZoomAPI.Model.Object.t(), keyword()) ::
+  @spec account_plan_create(Tesla.Env.client(), String.t(), map, keyword()) ::
           {:ok, ZoomAPI.Model.InlineResponse2003.t()} | {:error, Tesla.Env.t()}
   def account_plan_create(connection, account_id, body, _opts \\ []) do
     %{}

@@ -22,7 +22,7 @@ defmodule ZoomAPI.Model.Account do
           :last_name => String.t(),
           :email => String.t(),
           :password => String.t(),
-          :options => AccountsOptions,
+          :options => ZoomAPI.Model.AccountsOptions.t(),
           :vanity_url => String.t()
         }
 end

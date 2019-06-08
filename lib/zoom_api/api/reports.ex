@@ -12,7 +12,7 @@ defmodule ZoomAPI.Api.Reports do
 
   @doc """
   Retrieve Cloud Recording Usage Report
-  Retrieve cloud recording usage report for a specified period. You can only get cloud recording reports that is one day ealier than the current date and for the most recent period of 6 months. The date gap between from and to dates should be smaller or equal to 30 days. 
+  Retrieve cloud recording usage report for a specified period. You can only get cloud recording reports that is one day ealier than the current date and for the most recent period of 6 months. The date gap between from and to dates should be smaller or equal to 30 days.
 
   ## Parameters
 
@@ -23,11 +23,11 @@ defmodule ZoomAPI.Api.Reports do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec report_cloud_recording(Tesla.Env.client(), Date.t(), Date.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def report_cloud_recording(connection, from, to, _opts \\ []) do
     %{}
     |> method(:get)
@@ -36,7 +36,7 @@ defmodule ZoomAPI.Api.Reports do
     |> add_param(:query, :to, to)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -52,11 +52,11 @@ defmodule ZoomAPI.Api.Reports do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec report_daily(Tesla.Env.client(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def report_daily(connection, opts \\ []) do
     optional_params = %{
       :year => :query,
@@ -69,7 +69,7 @@ defmodule ZoomAPI.Api.Reports do
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """

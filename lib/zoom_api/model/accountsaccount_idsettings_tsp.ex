@@ -17,7 +17,7 @@ defmodule ZoomAPI.Model.AccountsaccountIdsettingsTsp do
 
   @type t :: %__MODULE__{
           :call_out => boolean(),
-          :call_out_countries => [Object],
+          :call_out_countries => [map],
           :show_international_numbers_link => boolean(),
           :display_toll_free_numbers => boolean()
         }
@@ -28,6 +28,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.AccountsaccountIdsettingsTsp do
 
   def decode(value, options) do
     value
-    |> deserialize(:call_out_countries, :list, ZoomAPI.Model.Object, options)
+    |> deserialize(:call_out_countries, :list, :map, options)
   end
 end

@@ -13,7 +13,7 @@ defmodule ZoomAPI.Model.DeviceList do
   ]
 
   @type t :: %__MODULE__{
-          :devices => [Object]
+          :devices => [map]
         }
 end
 
@@ -22,6 +22,6 @@ defimpl Poison.Decoder, for: ZoomAPI.Model.DeviceList do
 
   def decode(value, options) do
     value
-    |> deserialize(:devices, :list, ZoomAPI.Model.Object, options)
+    |> deserialize(:devices, :list, :map, options)
   end
 end

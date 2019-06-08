@@ -13,7 +13,7 @@ defmodule ZoomAPI.Model.AddRoleMembers do
   ]
 
   @type t :: %__MODULE__{
-          :members => [RolesroleIdmembersMembers]
+          :members => [ZoomAPI.Model.RolesroleIdmembersMembers.t()]
         }
 end
 

@@ -23,7 +23,7 @@ defmodule ZoomAPI.Api.Roles do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec add_role_members(
@@ -31,7 +31,7 @@ defmodule ZoomAPI.Api.Roles do
           String.t(),
           ZoomAPI.Model.AddRoleMembers.t(),
           keyword()
-        ) :: {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+        ) :: {:ok, map} | {:error, Tesla.Env.t()}
   def add_role_members(connection, role_id, body, _opts \\ []) do
     %{}
     |> method(:post)
@@ -39,7 +39,7 @@ defmodule ZoomAPI.Api.Roles do
     |> add_param(:body, :body, body)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -106,17 +106,17 @@ defmodule ZoomAPI.Api.Roles do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec roles(Tesla.Env.client(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def roles(connection, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/roles")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 end

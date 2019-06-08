@@ -232,11 +232,11 @@ defmodule ZoomAPI.Api.Users do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec user_email(Tesla.Env.client(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def user_email(connection, email, _opts \\ []) do
     %{}
     |> method(:get)
@@ -244,7 +244,7 @@ defmodule ZoomAPI.Api.Users do
     |> add_param(:query, :email, email)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -632,11 +632,11 @@ defmodule ZoomAPI.Api.Users do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec user_vanity_name(Tesla.Env.client(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def user_vanity_name(connection, vanity_name, _opts \\ []) do
     %{}
     |> method(:get)
@@ -644,7 +644,7 @@ defmodule ZoomAPI.Api.Users do
     |> add_param(:query, :vanity_name, vanity_name)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -659,11 +659,11 @@ defmodule ZoomAPI.Api.Users do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec user_zpk(Tesla.Env.client(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def user_zpk(connection, zpk, _opts \\ []) do
     %{}
     |> method(:get)
@@ -671,7 +671,7 @@ defmodule ZoomAPI.Api.Users do
     |> add_param(:query, :zpk, zpk)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """

@@ -29,7 +29,7 @@ defmodule ZoomAPI.Api.CloudRecording do
   @spec meeting_recording_registrant_create(
           Tesla.Env.client(),
           integer(),
-          ZoomAPI.Model.Object.t(),
+          map,
           keyword()
         ) :: {:ok, ZoomAPI.Model.InlineResponse2018.t()} | {:error, Tesla.Env.t()}
   def meeting_recording_registrant_create(connection, meeting_id, body, _opts \\ []) do
@@ -187,18 +187,18 @@ defmodule ZoomAPI.Api.CloudRecording do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec recording_get(Tesla.Env.client(), String.t(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def recording_get(connection, meeting_id, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/meetings/#{meeting_id}/recordings")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -220,7 +220,7 @@ defmodule ZoomAPI.Api.CloudRecording do
   @spec recording_registrant_question_update(
           Tesla.Env.client(),
           String.t(),
-          ZoomAPI.Model.Object.t(),
+          map,
           keyword()
         ) :: {:ok, nil} | {:error, Tesla.Env.t()}
   def recording_registrant_question_update(connection, meeting_id, body, _opts \\ []) do

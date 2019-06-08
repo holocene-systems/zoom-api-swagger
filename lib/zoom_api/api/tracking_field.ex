@@ -100,18 +100,18 @@ defmodule ZoomAPI.Api.TrackingField do
 
   ## Returns
 
-  {:ok, %ZoomAPI.Model.Object{}} on success
+  {:ok, map} on success
   {:error, info} on failure
   """
   @spec trackingfield_list(Tesla.Env.client(), keyword()) ::
-          {:ok, ZoomAPI.Model.Object.t()} | {:error, Tesla.Env.t()}
+          {:ok, map} | {:error, Tesla.Env.t()}
   def trackingfield_list(connection, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/tracking_fields")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%ZoomAPI.Model.Object{})
+    |> decode()
   end
 
   @doc """
@@ -122,7 +122,7 @@ defmodule ZoomAPI.Api.TrackingField do
 
   - connection (ZoomAPI.Connection): Connection to server
   - field_id (String.t): The Tracking Field ID
-  - body (TrackingField1): 
+  - body (TrackingField1):
   - opts (KeywordList): [optional] Optional parameters
 
   ## Returns

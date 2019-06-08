@@ -15,7 +15,7 @@ defmodule ZoomAPI.Model.Body18 do
 
   @type t :: %__MODULE__{
           :action => String.t(),
-          :user_info => UsersUserInfo
+          :user_info => ZoomAPI.Model.UsersUserInfo.t()
         }
 end
 

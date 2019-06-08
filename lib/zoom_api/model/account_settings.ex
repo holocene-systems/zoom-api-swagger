@@ -22,16 +22,16 @@ defmodule ZoomAPI.Model.AccountSettings do
   ]
 
   @type t :: %__MODULE__{
-          :schedule_meting => AccountsaccountIdsettingsScheduleMeting,
-          :in_meeting => AccountsaccountIdsettingsInMeeting,
-          :email_notification => AccountsaccountIdsettingsEmailNotification,
-          :zoom_rooms => AccountsaccountIdsettingsZoomRooms,
-          :security => AccountsaccountIdsettingsSecurity,
-          :recording => AccountsaccountIdsettingsRecording,
-          :telephony => AccountsaccountIdsettingsTelephony,
-          :integration => AccountsaccountIdsettingsIntegration,
-          :feature => AccountsaccountIdsettingsFeature,
-          :tsp => AccountsaccountIdsettingsTsp
+          :schedule_meting => ZoomAPI.Model.AccountsaccountIdsettingsScheduleMeting.t(),
+          :in_meeting => ZoomAPI.Model.AccountsaccountIdsettingsInMeeting.t(),
+          :email_notification => ZoomAPI.Model.AccountsaccountIdsettingsEmailNotification.t(),
+          :zoom_rooms => ZoomAPI.Model.AccountsaccountIdsettingsZoomRooms.t(),
+          :security => ZoomAPI.Model.AccountsaccountIdsettingsSecurity.t(),
+          :recording => ZoomAPI.Model.AccountsaccountIdsettingsRecording.t(),
+          :telephony => ZoomAPI.Model.AccountsaccountIdsettingsTelephony.t(),
+          :integration => ZoomAPI.Model.AccountsaccountIdsettingsIntegration.t(),
+          :feature => ZoomAPI.Model.AccountsaccountIdsettingsFeature.t(),
+          :tsp => ZoomAPI.Model.AccountsaccountIdsettingsTsp.t()
         }
 end
 
